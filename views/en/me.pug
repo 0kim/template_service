@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    h2 Current status
+    ul
+        li
+            b NoteStore URL:
+            = session.edamNoteStoreUrl
+        li
+            b Web API URL prefix:
+            = session.edamNoteStoreUrl
+    h3 Token Credentials:
+    ul
+        li
+            b token:
+            = session.oauthAccessToken
+        li
+            b secret:
+            = session.oauthAccessTokenSecret
+        li
+            b User ID:
+            = session.edamUserId
+        li
+            b Expires:
+            = session.edamExpires
+
+    h2 UserStore
+    - var accounting = _.property('accounting')(user)
+    - var accountLimits = _.property('accountLimits')(user)
+    ul
+        li
+            b id:
+            = " " + _.property('id')(user)
+        li
+            b username:
+            = " " + _.property('username')(user)
+        li
+            b name:
+            = " " + _.property('name')(user)
+        li
+            b accounting/uploadLimitEnd:
+            = " " + _.property('uploadLimitEnd')(accounting)
+        li
+            b accounting/uploadLimitNextMonth:
+            = " " + _.property('uploadLimitNextMonth')(accounting)
+        li
+            b accountLimits/uploadLimit:
+            = " " + _.property('uploadLimit')(accountLimits)
