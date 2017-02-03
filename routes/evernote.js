@@ -3,9 +3,10 @@ var router = express.Router();
 
 var Evernote = require('evernote');
 var config = require('../config.json');
-var callbackUrl = "http://localhost:3000/en/oauth_callback";
+var callbackUrl = "http://localhost:3000/en/oauth_callback"; // todo: should be configurable
 
-/* GET home page. */
+
+// http://{server}/en/
 router.get('/', function(req, res) {
     if (req.session.oauthAccessToken) {
         var token = req.session.oauthAccessToken;
@@ -26,6 +27,8 @@ router.get('/', function(req, res) {
     }
 });
 
+
+// http://{server}/en/oauth
 router.get('/oauth', function(req, res) {
     var client = new Evernote.Client({
         consumerKey: config.EN_API_CONSUMER_KEY,
@@ -49,6 +52,7 @@ router.get('/oauth', function(req, res) {
     });
 });
 
+// http://{server}/en/oauth_callback
 router.get('/oauth_callback', function(req, res) {
     var client = new Evernote.Client({
         consumerKey: config.EN_API_CONSUMER_KEY,
@@ -81,6 +85,7 @@ router.get('/oauth_callback', function(req, res) {
 });
 
 
+// http://{server}/en/me
 router.get('/me', function(req, res) {
     if (req.session.oauthAccessToken) {
         var token = req.session.oauthAccessToken;
@@ -102,5 +107,43 @@ router.get('/me', function(req, res) {
     }
 });
 
+
+// http://{server}/en/notebooks
+router.get('/notebooks', function(req, res) {
+    if (req.session.oauthAccessToken) {
+        var token = req.session.oauthAccessToken;
+        var client = new Evernote.Client({
+            token: token,
+            sandbox: config.EN_API_IS_SANDBOX,
+            china: config.EN_API_IS_CHINA
+        });
+
+        client.getNoteStore().listNotebooks().then(function (notebooks) {
+            console.log(notebooks); // debug
+
+            var retNotebooks = [];
+
+            if (notebooks.length > 0) {
+                for (var i = 0; i < notebooks.length; ++i) {
+                    retNotebooks.push({});
+                    retNotebooks[i]['name'] = notebooks[i].name;
+                    retNotebooks[i]['guid'] = notebooks[i].guid;
+                    console.log(retNotebooks);
+                    console.log("NAME: " + notebooks[i].name);
+                    console.log("GUID: " + notebooks[i].guid);
+                }
+            }
+
+            res.status(200).send(retNotebooks);
+        }, function (error) {
+            req.session.error = JSON.stringify(error);
+            res.status(500).send(error);
+        });
+    }
+    else
+    {
+        res.status(500).send('Evernote login is required.');
+    }
+});
 
 module.exports = router;

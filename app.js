@@ -1,8 +1,8 @@
 var express    = require('express');
-var app        = express();
 var path       = require('path');
 var fs         = require('fs');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var favicon    = require('serve-favicon');
 
@@ -73,9 +73,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// port 8082 setting. if you change port, change port num.
-app.listen(8082, function () {
-    console.log('NodeJs Server START on port 8082!');
-});
-
-//module.exports = app;
+module.exports = app;
