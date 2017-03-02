@@ -15,6 +15,9 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "evernote": "2.0.0-beta",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "sax": "~1.2.2",
+    "md5": "~2.2.1",
+    "request": "^2.7.90"
   }
 }
