@@ -176,6 +176,19 @@ router.get('/notebooks', function(req, res) {
 });
 
 
+function asyncCreateNotes(enNotes) {
+    var iteration = [];
+
+
+
+
+    // Create a note with ENEX.
+
+
+}
+
+
+
 // todo:test code...
 // http://{server}/en/note
 router.get('/note', function(req, res) {
@@ -192,8 +205,10 @@ router.get('/note', function(req, res) {
         var templateId = req.query.tid;
         var notebookGuid = req.query.nbguid;
 
-        if(!templateId) {
-            res.status(400).send('tid(\'Template Id\') is note specified.');
+        if (!templateId) {
+            res.status(400).render('en/note', {
+                title:  "EN/Note",
+                error: "tid(\'Template Id\') is note specified."});
             return;
         }
 
@@ -201,13 +216,13 @@ router.get('/note', function(req, res) {
 
         var body = '';
 
-        request.get(enexUrl).on('response', function(response) {
+        request.get(enexUrl).on('response', function (response) {
             console.log(response.statusCode);
             console.log(response.headers['content-type']);
-        }).on('error', function(err) {
-            res.status(400).send(err);
+        }).on('error', function (err) {
+            res.status(400).send(err); // todo
             return;
-        }).on('data', function(chunck) {
+        }).on('data', function (chunck) {
             body += chunck;
         }).on('end', function () {
             res.set('Content-Type', 'text/xml');
@@ -222,6 +237,7 @@ router.get('/note', function(req, res) {
 
             var enexNotes = pp.getNotes();
             var createdNoteCount = 0;
+            var enNotes = [];
 
             pp.close();
 
@@ -253,22 +269,38 @@ router.get('/note', function(req, res) {
                 enNote.title = n.title;
                 enNote.resources = enResources;
 
-                // Create a note with ENEX.
-                noteStore.createNote(enNote)
-                    .then( function( noteCallback ) {
-                        console.log(noteCallback.guid + " created");
-                        createdNoteCount++;
-                        console.log(createdNoteCount);
-                    }, function (error) {
-                        console.error( error );
-                        res.status(400).send(error);
-                        return;
-                    });
+                enNotes.push(enNote);
+
             }
 
-            res.status(200).send( createdNoteCount.toString() + " notes are posted." );
-            return;
+            // Wait for until creating multiple or single notes on Evernote account
+            var iteration = [];
+            for (let i in enNotes) {
+                iteration.push(noteStore.createNote(enNotes[i]).then(function(){createdNoteCount++;}));
+            }
+
+            Promise.all(iteration)
+                .then(function (output) {
+                    console.log('All notes are created successfully...');
+                    res.status(200).render('en/note', {
+                            title: "EN/Note",
+                            output: createdNoteCount.toString() + " notes are posted."
+                        });
+                    return;
+                }, function (error) {
+                    console.error(error);
+                    res.status(400).render('en/note', {
+                            title: "EN/Note",
+                            error: error
+                    });
+                    return;
+                });
         });
+    } else {
+        res.status(404).render('en/note', {
+                            title: "EN/Note",
+                            error: "Unable to load access token..."});
+        return;
     }
 });
 

@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1 Evernote Node.js Express Demo - Note creation with template ID
+    hr/
+    - if(error)
+        h2 Error
+        p
+            =error
+    - else
+        h2 Success
+        p
+            =output
