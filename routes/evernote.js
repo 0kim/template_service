@@ -4,12 +4,40 @@ var router = express.Router();
 var Evernote = require('evernote');
 var config = require('../config.json');
 var callbackUrl = "http://localhost:3000/en/oauth_callback"; // todo: should be configurable
+var request = require('request');
+
+var parser = require('./../js_backend/enexparser');
+const md5 = require('md5');
+const util = require('util');
+
+
+var templateUrlFmt = "http://localhost:3000/templates/%s/note";
+
+
+function writeTokenToCookie(req, res, value){
+    res.cookie( 'entkn',
+                value,
+                { expires: new Date(Date.now() + 604800000), httpOnly: true ,signed:true}
+    );
+};
+
+function readTokenFromCookie(req, res) {
+    var token = req.signedCookies.entkn;
+    console.log("token:"+ token);
+    return token;
+}
 
 
 // http://{server}/en/
 router.get('/', function(req, res) {
+    var token = '';
+
+    if (token = readTokenFromCookie(req, res)) {
+        req.session.oauthAccessToken = token;
+    }
+
     if (req.session.oauthAccessToken) {
-        var token = req.session.oauthAccessToken;
+        token = req.session.oauthAccessToken;
         var client = new Evernote.Client({
             token: token,
             sandbox: config.EN_API_IS_SANDBOX,
@@ -79,6 +107,9 @@ router.get('/oauth_callback', function(req, res) {
                 req.session.edamExpires = results.edam_expires;
                 req.session.edamNoteStoreUrl = results.edam_noteStoreUrl;
                 req.session.edamWebApiUrlPrefix = results.edam_webApiUrlPrefix;
+
+                // save auth token to cookie
+                writeTokenToCookie(req, res, oauthAccessToken);
                 res.redirect('/en');
             }
         });
@@ -119,8 +150,6 @@ router.get('/notebooks', function(req, res) {
         });
 
         client.getNoteStore().listNotebooks().then(function (notebooks) {
-            console.log(notebooks); // debug
-
             var retNotebooks = [];
 
             if (notebooks.length > 0) {
@@ -143,6 +172,103 @@ router.get('/notebooks', function(req, res) {
     else
     {
         res.status(500).send('Evernote login is required.');
+    }
+});
+
+
+// todo:test code...
+// http://{server}/en/note
+router.get('/note', function(req, res) {
+    if (req.session.oauthAccessToken) {
+        var token = req.session.oauthAccessToken;
+        var client = new Evernote.Client({
+            token: token,
+            sandbox: config.EN_API_IS_SANDBOX,
+            china: config.EN_API_IS_CHINA
+        });
+
+        var noteStore = client.getNoteStore();
+        var note = {};
+        var templateId = req.query.tid;
+        var notebookGuid = req.query.nbguid;
+
+        if(!templateId) {
+            res.status(400).send('tid(\'Template Id\') is note specified.');
+            return;
+        }
+
+        var enexUrl = util.format(templateUrlFmt, templateId);
+
+        var body = '';
+
+        request.get(enexUrl).on('response', function(response) {
+            console.log(response.statusCode);
+            console.log(response.headers['content-type']);
+        }).on('error', function(err) {
+            res.status(400).send(err);
+            return;
+        }).on('data', function(chunck) {
+            body += chunck;
+        }).on('end', function () {
+            res.set('Content-Type', 'text/xml');
+
+            console.log("request/data/length: " + body.length);
+
+            var pp = new parser.EnexParser();
+
+            pp.init();
+            console.log(body.toString('utf8'));
+            pp.parse(body);
+
+            var enexNotes = pp.getNotes();
+            var createdNoteCount = 0;
+
+            pp.close();
+
+            for (let n of enexNotes) {
+                var enNote = {};
+                var enResources = [];
+
+                for (let r of n.resources) {
+
+                    var enRsc = {};
+                    var enRscBodyData = new Buffer(r.data, "base64");
+                    var enRscData = new Evernote.Types.Data();
+
+                    enRscData.bodyHash = new Buffer(md5(enRscBodyData));
+                    enRscData.size = enRscBodyData.length;
+                    enRscData.body = enRscBodyData;
+
+                    enRsc.guid = ''; // new resource should be empty.
+                    enRsc.noteGuid = ''; // new note should be empty.
+                    enRsc.data = enRscData;
+                    enRsc.mime = r.mime;
+                    enRsc.width = r.width;
+                    enRsc.height = r.height;
+
+                    enResources.push(enRsc);
+                }
+
+                enNote.content = n.content;
+                enNote.title = n.title;
+                enNote.resources = enResources;
+
+                // Create a note with ENEX.
+                noteStore.createNote(enNote)
+                    .then( function( noteCallback ) {
+                        console.log(noteCallback.guid + " created");
+                        createdNoteCount++;
+                        console.log(createdNoteCount);
+                    }, function (error) {
+                        console.error( error );
+                        res.status(400).send(error);
+                        return;
+                    });
+            }
+
+            res.status(200).send( createdNoteCount.toString() + " notes are posted." );
+            return;
+        });
     }
 });
 

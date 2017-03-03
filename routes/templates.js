@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('underscore');
+
+
 var templList = `{
         "service" : "template_service", 
         "templates" : [ 
             {
                 "id" : "1",
-                "title" : "노트 1",
+                "title" : "Template Test",
                 "img_url" : "/templates/1/img",
                 "note_url" : "/templates/1/note"
             }, 
@@ -17,7 +20,7 @@ var templList = `{
             },
             {
                 "id" : "3",
-                "title" : "노트 ",
+                "title" : "노트 3",
                 "img_url" : "/templates/3/img",
                 "note_url" : "/templates/3/note"
             },
@@ -48,18 +51,63 @@ var templList = `{
         ]      
     }`;
 
+var templates = [
+    {
+        'id' : '1',
+        'enex_file' : 'template_test.enex',
+        'thumb_img' : 'template_test.png'
+    },
+    {
+        'id' : '2',
+        'enex_file' : 'tmpl_01.enex',
+        'thumb_img' : 'tmpl_01.png'
+    },
+    {
+        'id' : '3',
+        'enex_file' : 'tmpl_01.enex',
+        'thumb_img' : 'tmpl_01.png'
+    },
+    {
+        'id' : '4',
+        'enex_file' : 'tmpl_01.enex',
+        'thumb_img' : 'tmpl_01.png'
+    },
+    {
+        'id' : '5',
+        'enex_file' : 'tmpl_01.enex',
+        'thumb_img' : 'tmpl_01.png'
+    },
+    {
+        'id' : '6',
+        'enex_file' : 'tmpl_01.enex',
+        'thumb_img' : 'tmpl_01.png'
+    },
+    {
+        'id' : '7',
+        'enex_file' : 'tmpl_01.enex',
+        'thumb_img' : 'tmpl_01.png'
+    }
+];
+
 
 router.get('/', function(req, res, next) {
     res.send(templList);
 });
 
 router.get('/:id', function(req, res) {
-
+    res.status(400).send(`Usage: Use {host}/{id}/note to retrieve note template <br> or <br> {host}/{id}/img`);
 });
 
 router.get('/:id/img', function(req, res) {
 
-    var fileName = "tmpl_01.png";
+    var idx = _.findIndex(templates, { id: req.params.id });
+    if (idx < 0) {
+        res.status(404).send('No image');
+        return
+    }
+
+    var fileName = templates[idx].thumb_img;
+
     var options = {
         root: __dirname + '/../public/images',
         dotfiles: 'deny',
@@ -84,7 +132,13 @@ router.get('/:id/img', function(req, res) {
 
 router.get('/:id/note', function(req, res) {
 
-    var fileName = "tmpl_01.enex";
+    var idx = _.findIndex(templates, { id: req.params.id });
+    if (idx < 0) {
+        res.status(404).send('No note');
+        return
+    }
+
+    var fileName = templates[idx].enex_file;
     var options = {
         root: __dirname + '/../public/templates',
         dotfiles: 'deny',

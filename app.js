@@ -1,3 +1,4 @@
+var config     = require('./config.json');
 var express    = require('express');
 var path       = require('path');
 var fs         = require('fs');
@@ -23,7 +24,7 @@ app.use(express.static(path.join(__dirname + "/")));
 app.use(favicon(path.join(__dirname, 'images/favicon', 'goodstudio.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(config.EXP_COOKIE_KEY));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // express.session
@@ -37,11 +38,6 @@ app.use('/', routeIndex);
 app.use('/users', routeUsers );
 app.use('/templates', routeTemplates);
 app.use('/en', routeEvernote);
-
-// templete loading
-app.post('/templete', function (req, res) {
-  console.log("success");
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
