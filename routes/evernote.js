@@ -3,15 +3,13 @@ var router = express.Router();
 
 var Evernote = require('evernote');
 var config = require('../config.json');
-var callbackUrl = "http://localhost:3000/en/oauth_callback"; // todo: should be configurable
 var request = require('request');
-
 var parser = require('./../js_backend/enexparser');
 const md5 = require('md5');
 const util = require('util');
 
-
-var templateUrlFmt = "http://localhost:3000/templates/%s/note";
+var callbackUrl = config.EN_CALLBACK_BASE_URL + "/en/oauth_callback";
+var templateUrlFmt = config.EN_TEMPLATE_BASE_URL + "/templates/%s/note";
 
 
 function writeTokenToCookie(req, res, value){
@@ -276,7 +274,7 @@ router.get('/note', function(req, res) {
             // Wait for until creating multiple or single notes on Evernote account
             var iteration = [];
             for (let i in enNotes) {
-                iteration.push(noteStore.createNote(enNotes[i]).then(function(){createdNoteCount++;}));
+                iteration.push(noteStore.createNote(enNotes[i]).then(function(){createdNoteCount++;}, function(error){}));
             }
 
             Promise.all(iteration)
