@@ -1,663 +1,264 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0" name="viewport">
-	<meta name="twitter:widgets:theme" content="light">
-	<meta property="og:title" content="goodstudio" />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="Your-Image-Url" />
-	<meta property="og:description" content="Your-Page-Description" />
-	<title>IT'S YOUR STUDIO</title>
+    <meta charset="UTF-8">
+    <title>Temp.latte - Save a note at once!</title>
 
-	<!-- favicon -->
-	<link rel="icon" href="images/goodstudio.ico" type="image/x-icon">
-	<link rel="shortcut icon" type="image/x-icon" href="goodstudio.ico">
-
-	<!-- Font -->
-
-	<!-- Css -->
-	<link rel="stylesheet" href="css/core.min.css" />
-	<link rel="stylesheet" href="css/skin-photo-studio.css" />
-
-	<!--[if lt IE 9]>
-    	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+    <link rel="stylesheet" href="css/core.min.css" />
+    <link rel="stylesheet" href="css/templatte.css" />
 </head>
 <body class="shop home-page">
+<div class="wrapper">
+    <div class="wrapper-inner">
+        <header class="header">
+            <div class="header-inner">
+                <div class="row nav-bar pt-10">
+                    <div class="column width-1 nav-bar-inner">
+                        <div class="logo ">
+                            <div class="logo-inner">
+                                <a href="#"><img src="images/templatte.png" alt="logo" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column width-11 align-right">
+                        <!-- todo: 우축으로 정렬할 것 -->
+                        <!-- Notebook List -->
+                        <div id="en_notebook_dropdown" class="dropdown inline medium lspacing-small bkg-grey-light" >
+                            <a href="#" class="button">Notebook<span class="icon-down-open"></span></a>
+                            <ul class="dropdown-list">
+                                <li><a href="#">No Notebook</a></li>
+                            </ul>
+                        </div>
+                        <!-- Login Button -->
+                        <a href="/en/oauth" class="button small border-grey bkg-hover-grey-light color-hover-white rounded">
+                            <span id="en_login_icon" class="icon-evernote medium color-grey v-align-middle"></span>
+                            <span id="en_login_text">Login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header end -->
+        <!-- Content -->
+        <div class="content clearfix">
+            <div class="row flex">
+                <div class="column bkg-grey-ultralight align-center">Once a click, save a note template!</div>
+            </div>
+        </div>
+        <!-- Content end -->
+        <div class="row">
+            <!-- grid/row1/col1 -->
+            <div class="column width-4 ">
+                <p/>
+                <div class="box rounded bkg-grey-ultralight" >
+                    <div class="row">
+                        <div class="column">
+                            <h5>한글Template Note Title</h5>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="column">
+                            <div class="thumbnail overlay-img-scale-in">
+                                <a href="#" class="overlay-link">
+                                    <img src="templates/1/img" alt="">
+                                    <span class="overlay-info">
+                                        <span>
+                                            <span>
+                                                Content of Note text here
+                                            </span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="column">
+                            <div class="align-center">
+                                <a href="#">
+                                    <h6>
+                                        <!--<span class="icon-inbox"></span>-->
+                                        Save
+                                    </h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-	<div class="wrapper reveal-side-navigation">
-		<div class="wrapper-inner">
+            <!-- grid/row1/col2 -->
+            <div class="column width-4 ">
+                <p/>
+                <div class="box rounded bkg-grey-ultralight" >
+                    <div class="row">
+                        <div class="column">
+                            <h5>한글Template Note Title</h5>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="column">
+                            <div class="thumbnail overlay-img-scale-in">
+                                <a href="#" class="overlay-link">
+                                    <img src="templates/1/img" alt="">
+                                    <span class="overlay-info">
+                                <span>
+                                    <span>
+                                        Content of Note text here
+                                    </span>
+                                </span>
+                            </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="column">
+                            <div class="align-center">
+                                <a href="#">
+                                    <h6>
+                                        <!--<span class="icon-inbox"></span>-->
+                                        Save
+                                    </h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column width-4 ">
+                <p/>
+                <div class="box rounded bkg-grey-ultralight" >
+                    <div class="row">
+                        <div class="column">
+                            <h5>한글Template Note Title</h5>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="column">
+                            <div class="thumbnail overlay-img-scale-in">
+                                <a href="#" class="overlay-link">
+                                    <img src="templates/2/img" alt="">
+                                    <span class="overlay-info">
+                                <span>
+                                    <span>
+                                        Content of Note text here
+                                    </span>
+                                </span>
+                            </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-20">
+                        <div class="column">
+                            <div class="align-center">
+                                <a href="#">
+                                    <h6>
+                                        <!--<span class="icon-inbox"></span>-->
+                                        Save
+                                    </h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<!-- Header -->
-			<header class="header header-fixed header-fixed-on-mobile header-transparent" data-bkg-threshold="1">
-				<div class="header-inner">
-					<div class="row nav-bar">
-						<div class="column width-12 nav-bar-inner">
-							<div class="logo">
-								<div class="logo-inner">
-									<a href="index.html"><img src="images/ever.png" alt="ever" /></a>
-									<a href="index.html"><img src="images/ever.png" alt="ever" /></a>
-
-								</div>
-							</div>
-							<nav class="navigation nav-block secondary-navigation nav-right">
-								<ul>
-									<!-- Dropdown Cart Overview
-									<li>
-										<div class="dropdown">
-											<a href="#" class="nav-icon cart button no-page-fade"><span class="cart-indication"><span class="icon-shopping-cart"></span> <span class="badge">3</span></span></a>
-											<ul class="dropdown-list custom-content cart-overview">
-												<li class="cart-item">
-													<a href="single-product.html" class="product-thumbnail">
-														<img src="images/design-agency/portfolio/grid/no-margins/project-6-square.jpg" alt="" />
-													</a>
-													<div class="product-details">
-														<a href="single-product.html" class="product-title">
-															Cotton Jump Suit
-														</a>
-														<span class="product-quantity">2 x</span>
-														<span class="product-price"><span class="currency">$</span>15.00</span>
-														<a href="#" class="product-remove icon-cancel"></a>
-													</div>
-												</li>
-												<li class="cart-item">
-													<a href="single-product.html" class="product-thumbnail">
-														<img src="images/design-agency/portfolio/grid/no-margins/project-7-square.jpg" alt="" />
-													</a>
-													<div class="product-details">
-														<a href="single-product.html" class="product-title">
-															Cotton Jump Suit
-														</a>
-														<span class="product-quantity">2 x</span>
-														<span class="product-price"><span class="currency">$</span>15.00</span>
-														<a href="#" class="product-remove icon-cancel"></a>
-													</div>
-												</li>
-												<li class="cart-item">
-													<a href="single-product.html" class="product-thumbnail">
-														<img src="images/design-agency/portfolio/grid/no-margins/project-8-square.jpg" alt="" />
-													</a>
-													<div class="product-details">
-														<a href="single-product.html" class="product-title">
-															Cotton Jump Suit
-														</a>
-														<span class="product-quantity">2 x</span>
-														<span class="product-price"><span class="currency">$</span>15.00</span>
-														<a href="#" class="product-remove icon-cancel"></a>
-													</div>
-												</li>
-												<li class="cart-subtotal">
-													Sub Total
-													<span class="amount"><span class="currency">$</span>15.00</span>
-												</li>
-												<li class="cart-actions">
-													<a href="cart.html" class="view-cart">View Cart</a>
-													<a href="checkout.html" class="checkout button small"><span class="icon-check"></span> Checkout</a>
-												</li>
-											</ul>
-										</div>
-									</li> -->
-									<!-- Dropdown Search Module
-									<li>
-										<div class="dropdown">
-											<a href="#" class="nav-icon search button no-page-fade"><span class="icon-magnifying-glass"></span></a>
-											<div class="dropdown-list custom-content cart-overview">
-												<div class="search-form-container site-search">
-													<form action="#" method="get" novalidate>
-														<div class="row">
-															<div class="column width-12">
-																<div class="field-wrapper">
-																	<input type="text" name="search" class="form-search form-element no-margin-bottom" placeholder="type &amp; hit enter...">
-																	<span class="border"></span>
-																</div>
-															</div>
-														</div>
-													</form>
-													<div class="form-response"></div>
-												</div>
-											</div>
-										</div>
-									</li> -->
-									<!-- Login
-									<li>
-										<div class="v-align-middle">
-											<div class="dropdown">
-												<a class="button no-page-fade no-label-on-mobile small text-uppercase no-margin-bottom"><span class="icon-lock left"></span><span>Private Collection</span></a>
-												<div class="dropdown-list custom-content">
-													<h5>Access Your Account</h5>
-													<div class="login-form-container">
-														<form class="login-form" action="#" method="post" novalidate>
-															<div class="row">
-																<div class="column width-12">
-																	<div class="field-wrapper">
-																		<input type="text" name="email" class="form-name form-element small no-padding-left no-padding-right" placeholder="E-mail" tabindex="1" required>
-																	</div>
-																</div>
-																<div class="column width-12">
-																	<div class="field-wrapper">
-																		<input type="password" name="password" class="form-email form-element small no-padding-left no-padding-right" placeholder="Password" tabindex="2" required>
-																	</div>
-																</div>
-																<div class="column width-6">
-																	<input type="submit" value="Sign In" class="form-submit button small bkg-charcoal bkg-hover-theme color-white color-hover-white">
-																</div>
-																<div class="column width-6 right">
-																	<a class="recuperate-password pt-10" href="">Password?</a>
-																</div>
-															</div>
-															<input type="text" name="honeypot" class="form-honeypot form-element">
-														</form>
-														<div class="form-response"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li> -->
-									<!-- Aux Navigation -->
-									<li class="aux-navigation hide">
-										<a href="#" class="navigation-show side-nav-show nav-icon">
-											<span class="icon-menu"></span>
-										</a>
-									</li>
-								</ul>
-							</nav>
-							<!-- Main Menu --> 
-							<nav class="navigation nav-block primary-navigation nav-right">
-								<ul>
-								<!--	<li class="current">
-										<a href="index.html">Demos</a>
-									</li>
-									<li>
-										<a href="about-style-one.html">Pages</a>
-									</li>
-									<li class="contains-mega-sub-menu">
-										<a href="portfolio-three-columns.html">Folio</a>
-									</li>
-									<li>
-										<a href="blog.html">Blog</a>
-									</li>
-									<li class="sub-menu-right">
-										<a href="shop-grid.html">Shop</a>
-									</li>
-									<li class="contains-mega-sub-menu">
-										<a href="elements-accordions.html">Elements</a>
-									</li>-->
-								</ul>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</header>
-			<!-- Header End -->
-
-			<!-- Content -->
-			<div class="content clearfix">
-
-				<!-- Portfolio Grid -->
-				<div class="section-block grid-filter-menu pt-150 right left-on-mobile bkg-charcoal">
-					<div class="row no-padding">
-						<div class="column width-6 left color-white">
-							<h3 class="mb-mobile-50">IT'S YOUR STUDIO</h3>
-						</div>
-						<!--
-						<div class="column width-6">
-							<ul>
-								<li><a class="active" href="#" data-filter="*">All</a></li>
-								<li><a href="#" data-filter=".portraits">Portraits</a></li>
-								<li><a href="#" data-filter=".fashion">Fashion</a></li>
-								<li><a href="#" data-filter=".animals">Animals</a></li>
-								<li><a href="#" data-filter=".nature">Nature</a></li>
-							</ul>
-						</div>
-						-->
-					</div>
-				</div>
-				<div class="section-block grid-container fade-in-progressively full-width no-margins pt-0 bkg-charcoal" data-layout-mode="masonry" data-grid-ratio="1.5" data-animate-filter-duration="700" data-set-dimensions data-animate-resize data-animate-resize-duration="0">
-					<div class="row">
-						<div class="column width-12">
-							<div class="row grid content-grid-3">
-								<div class="grid-item portrait portraits">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-7-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-7-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-7-portrait.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Mora</span>
-														<span class="project-description">Republik Banana</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item nature">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-2-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-2-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-2-landscape.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Bunker</span>
-														<span class="project-description">For Le Coq Sportif</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item portraits">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-3-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-3-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-3-landscape.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Gropius</span>
-														<span class="project-description">For Madrid</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item fashion">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-4-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-4-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-4-landscape.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Jayden Adams</span>
-														<span class="project-description">For Higher</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item animals">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-5-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-5-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-5-landscape.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Farnsworth</span>
-														<span class="project-description">For Nightly</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item wide nature">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-6-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-6-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-6-wide.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Natura</span>
-														<span class="project-description">For Nat Geo</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item grid-sizer portrait portraits">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-1-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-1-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-1-portrait.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Water Buffalo</span>
-														<span class="project-description">For Nature</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item nature">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-8-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-8-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-8-landscape.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Brooklyn</span>
-														<span class="project-description">New York</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-								<div class="grid-item">
-									<div class="thumbnail img-scale-in" data-hover-easing="easeInOut" data-hover-speed="500" data-hover-bkg-color="#000000" data-hover-bkg-opacity="0.4">
-										<a class="overlay-link lightbox-link" data-group="gallery-1" data-image-url="http://sartre.thememountain.com/images/photo-studio/portfolio/grid/no-margins/project-8-lightbox.jpg" href="images/photo-studio/portfolio/grid/no-margins/project-9-lightbox.jpg">
-											<img src="images/photo-studio/portfolio/grid/no-margins/project-9-landscape.jpg" alt=""/>
-											<span class="overlay-info v-align-bottom left">
-												<span>
-													<span>
-														<span class="text-line bkg-white mb-10"></span>
-														<span class="project-title">Jayden</span>
-														<span class="project-description">Personal Folio</span>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Portfolio Grid End -->
-
-				<!-- Hero Section 5
-				<section class="section-block hero-5 hero-5-1 clear-height right show-media-column-on-mobile bkg-charcoal color-white">
-					<div class="media-column width-6"></div>
-					<div class="row">
-						<div class="column width-5">
-							<div class="hero-content split-hero-content">
-								<div class="hero-content-inner left horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;" data-threshold="0.5">
-									<h3 class="mb-50">About</h3>
-									<p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-									<p class="mb-50">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia volupta.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				Hero Section 5 End -->
-
-				<!-- Team Grid
-				<div class="section-block no-padding-top">
-					<div class="row">
-						<div class="column width-4">
-							<h3 class="mb-50">/.About</h3>
-						</div>
-						<div class="column width-8">
-							<div class="row">
-								<div class="column width-6">
-									<p class="mb-50">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-								</div>
-								<div class="column width-6">
-									<p class="mb-50">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia volupta.</p>
-								</div>
-							</div>
-						</div>
-						<div class="column width-12">
-							<div class="section-block no-padding masonry-set-dimensions no-margins">
-								<div class="row">
-									<div class="column width-12">
-										<div class="row content-grid-3 masonry-grid fade-in-progressively">
-											<div class="grid-item grid-sizer large">
-												<div class="thumbnail">
-													<img src="images/photo-studio/team/team-member-2.jpg" alt=""/>
-												</div>
-												<div class="content-outer">
-													<div class="content-inner v-align-bottom left color-white">
-														<div class="row">
-															<div class="column width-5">
-																<img src="images/photo-studio/logos/signature-grid-4.svg"alt="" />
-																<p class="no-margin-bottom">E.Sartre, New York City, 2014.</p>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="grid-item portrait">
-												<div class="thumbnail">
-													<img src="images/photo-studio/team/team-member-1-portrait.jpg" width="760" height="1047" alt=""/>
-												</div>
-												<div class="content-outer">
-													<div class="content-inner color-white">
-														<div class="row">
-															<div class="column width-4 offset-4 center">
-																<a href="http://player.vimeo.com/video/63952497?autoplay=1&amp;color=a09283" data-twitter-user="thememountainco" data-image-url="http://marquez.thememountain.com/boxed/images/photo-studio/portfolio/project-5/mobile-app-3.jpg" data-caption="This is a lightbox caption for the video playing" class="lightbox-link icon-play icon-circled border-white color-white color-hover-white bkg-hover-theme circled small"></a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				Team Grid End -->
-
-				<!-- Client Section Custom
-				<div class="section-block clients-1 replicable-content bkg-charcoal color-white">
-					<div class="row">
-						<div class="column width-4">
-							<h3 class="mb-50">/.Studio Recognition</h3>
-						</div>
-						<div class="column width-8">
-							<div class="row content-grid-3 flex">
-								<div class="grid-item">
-									<h5 class="client-name">Cannes Gold Lion</h5>
-									<span class="client-description font-alt-1">2015</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">Parons Art Award</h5>
-									<span class="client-description font-alt-1">2015</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">Fashion TV Award</h5>
-									<span class="client-description font-alt-1">2015</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">Nat Geo Photo</h5>
-									<span class="client-description font-alt-1">2014</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">MoMa Photo Awards</h5>
-									<span class="client-description font-alt-1">2014</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">GLAAD Media Awards</h5>
-									<span class="client-description font-alt-1">2014</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">GQ Fashion Award</h5>
-									<span class="client-description font-alt-1">2013</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">VH-1 Photo of The Year</h5>
-									<span class="client-description font-alt-1">2013</span>
-								</div>
-								<div class="grid-item">
-									<h5 class="client-name">VH-1 Achivement Award</h5>
-									<span class="client-description font-alt-1">2012</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				Client Section Custom End -->
-
-				<!-- Sign Up Section 1 -->
-				<section class="section-block signup-1 bkg-grey-ultralight">
-					<div class="row">
-						<div class="column width-6 offset-3 center">
-							<h2 class="mb-30">CAN YOU JOIN US?</h2>
-							<div class="signup-form-container">
-								<form class="signup-form" action="php/subscribe.php" method="post" novalidate>
-									<div class="row">
-										<div class="column width-9">
-											<div class="field-wrapper">
-												<input type="email" name="email" class="form-email form-element no-padding-left no-padding-right center-on-mobile" placeholder="Email address" tabindex="2">
-											</div>
-										</div>
-										<div class="column width-3 center">
-											<input type="submit" value="Signup" class="form-submit button bkg-charcoal bkg-hover-theme color-white color-hover-white">
-										</div>
-									</div>
-									<input type="text" name="honeypot" class="form-honeypot form-element">
-								</form>
-								<div class="form-response show"></div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- Sign Up Section 1 End -->
-
-				<!-- Call to Action Section
-				<div class="section-block replicable-content pt-60 pb-30 call-to-action-2 call-to-action-2-1 bkg-grey-ultralight background-cover">
-					<div class="row">
-						<div class="column width-6 offset-3 center">
-							<p class="text-uppercase"><a data-content="inline" data-toolbar="" data-networks="twitter;pinterest" data-modal-mode data-modal-width="600" data-lightbox-animation="fade" href="#signup-lightbox" class="lightbox-link color-white color-hover-theme">Join Our Newsletter</a></p>
-						</div>
-					</div>
-				</div>
-				Call to Action Section End -->
-
-				<!-- Testimonial Section 2
-				<div class="section-block bkg-grey-ultralight testimonial-2 testimonial-2-1 color-white">
-					<div class="row">
-						<div class="column width-12">
-							<div class="row flex">
-								<div class="column width-3 v-align-middle brief">
-									<div class="brief-inner">
-										<h6 class="no-margin-bottom">GQ Magazine</h6>
-										<p>November Edition 2015</p>
-									</div>
-								</div>
-								<div class="column width-9">
-									<div class="row">
-										<div class="column width-10 offset-1">
-											<blockquote class="large left">
-												<p>Incredibly talented. Goes above and beyond on every shoot. We've worked with Sartre for more than 10 years and his work never ceases to amaze.</p>
-												<cite>John Adams - Editor in Chief</cite>
-											</blockquote>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				Testimonial Section 2 End -->
-
-				<!-- Signup Modal -->
-				<!--<div id="signup-lightbox" class="signup-1 pt-70 pb-50 hide">
-					<div class="row">
-						<div class="column width-12 center">
-							<h2 class="mb-30">Joinddd Our Newsletter:</h2>
-							<div class="signup-form-container">
-								<form class="signup-form" action="javascript:template();" method="post" novalidate>
-									<div class="row">
-										<div class="column width-9">
-											<div class="field-wrapper">
-												<input type="email" name="email" class="form-email form-element no-padding-left no-padding-right" placeholder="Email address*" tabindex="2" required>
-											</div>
-										</div>
-										<div class="column width-3 center">
-											<input type="submit" value="Signup" class="form-submit button bkg-charcoal bkg-hover-theme color-white color-hover-white">
-										</div>
-									</div>
-									<input type="text" name="honeypot" class="form-honeypot form-element">
-								</form>
-								<div class="form-response show"></div>
-							</div>
-						</div>
-					</div>
-				</div>-->
-				<!-- Signup Modal End -->
-
-			</div>
-			<!-- Content End -->
-
-			<!-- Footer -->
-			<footer class="footer">
-				<div class="footer-top">
-					<div class="row flex">
-						<div class="column width-3">
-							<div class="widget">
-								<h4 class="widget-title"><strong>GOOD</strong><br>STUDIO</h4>
-							</div>
-						</div>
-						<div class="column width-3">
-							<div class="widget">
-								<ul>
-									<li>
-										<a href="#">I AM</a>
-									</li>
-									<li>
-										<a href="#">YOUR STUDIO</a>
-									</li>
-									<li>
-										<a href="#">I'll GIVE YOU</a>
-									</li>
-									<li>
-										<a href="#">GOOD</a>
-									</li>
-									<li>
-										<a href="#">MEMORIES</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="column width-6 right left-on-mobile">
-							<div class="widget">
-								<ul class="social-list list-horizontal">
-									<li><a href="#"><span class="icon-twitter small"></span></a></li>
-									<li><a href="#"><span class="icon-facebook small"></span></a></li>
-									<li><a href="#"><span class="icon-instagram small"></span></a></li>
-								</ul>
-								<p class="copyright">
-									IT'S YOUR GOOD STUDIO
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- Footer End -->
-
-		</div>
-	</div>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<!-- Js -->
-	<script src="js/timber.master.min.js"></script>
-	<!-- come on temp -->
-	<script>
-		function template(){
-			var request = $.ajax({
-				url: "/template",
-				method: "POST",
-				data: {
-					subject : 'evernote',
-					url     : 'tem/tem',
-					enexUrl : 'met/met'
-				}
-			});
-
-			request.done(function( msg ) {
-				console.log("ajax success!")
-			});
-		}
-	</script>
+        </div>
 
 
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="row flex bkg-grey-ultralight pt-20">
+                    <div class="column width-3">
+                        <div class="widget">
+                            <h6 class="widget-title">Save a template<br>by single click</h6>
+                        </div>
+                    </div>
+                    <div class="column width-3">
+                        <div class="widget">
+                            <ul>
+                                <li>
+                                    <a href="#">What is?</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column width-6 right left-on-mobile">
+                        <div class="widget">
+                            <ul class="social-list list-horizontal">
+                                <li><a href="#"><span class="icon-facebook small"></span></a></li>
+                            </ul>
+                            <p class="copyright">
+                                Templatte
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End -->
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
+<script type="text/javascript" src="/js/timber.js"></script>
+<!-- script in the page -->
+<script>
+    $( document ).ready( function() {
+        // Check the status of login
+        $.when( $.ajax({ url: "/en/me",
+            success: function( data, textStatus, jqXHR ){ },
+            error: function(xhr, status, error) { }
+        }))
+            .then(
+                function(data, textStatus, jqXHR){
+                    $.when(
+                        $.ajax({ url: "/en/notebooks" })
+                    )
+                        .then(
+                            function(data, textStatus, jqXHR){
+                                $("#en_login_text").text("Logout");
+                                var onclick_event_handler;
+
+                                // Grab a existed event handler of <a>
+                                $("#en_notebook_dropdown ul li").find('a').each( function(idx) {
+                                    $(this).each(function( idx ){
+                                       let arr;
+                                       console.log($(this)[0]);
+                                       arr = $._data( $(this)[0], "events");
+                                        onclick_event_handler = arr.click[0].handler;
+                                    });
+                                });
+
+                                $("#en_notebook_dropdown ul").empty();
+
+                                jqXHR['responseJSON'].forEach(
+                                    function(entry) {
+                                        console.log(entry);
+                                        $("#en_notebook_dropdown ul").append(
+                                            "<li><a href='#' guid='" + entry['guid'] +
+                                            "'>" + entry['name'] + "</a></li>");
+                                    }
+                                );
+
+                                $("#en_notebook_dropdown ul li a").each( function( idx ) {
+                                    $(this).on('click', onclick_event_handler);
+                                });
+                            },
+                            function(xhr, status, error) {
+                                alert("ERROR");
+                            }
+                        );
+                },
+                function(xhr, status, error){
+                    $("#en_login_text").text("Log-in");
+                });
+    });
+</script>
 </body>
 </html>

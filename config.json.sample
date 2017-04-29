@@ -6,6 +6,7 @@
   "EN_API_IS_CHINA" : false,
   "EXP_COOKIE_KEY" : "ANY RANDOM KEY HERE"
   "EN_CALLBACK_BASE_URL" : "http://localhost:3000",
-  "EN_TEMPLATE_BASE_URL" : "http://localhost:3000"
+  "EN_TEMPLATE_BASE_URL" : "http://localhost:3000",
+  "COOKIE_TOKEN_NAME" : "entemplatte"
 }
 

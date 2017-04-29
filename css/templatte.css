@@ -1,0 +1,34 @@
+
+
+.logo-inner
+{
+    width: 40px;
+    height: 40px;
+}
+
+.pt-10
+{
+    padding-top: 1rem
+}
+
+.pt-20 {
+    padding-top: 2rem
+}
+
+.v-align-middle {
+    vertical-align: middle;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.widget {
+    font-size: 1.2rem;
+    color: #999000;
+
+}

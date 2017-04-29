@@ -13,15 +13,14 @@ var templateUrlFmt = config.EN_TEMPLATE_BASE_URL + "/templates/%s/note";
 
 
 function writeTokenToCookie(req, res, value){
-    res.cookie( 'entkn',
+    res.cookie( config.COOKIE_TOKEN_NAME,
                 value,
                 { expires: new Date(Date.now() + 604800000), httpOnly: true ,signed:true}
     );
 };
 
 function readTokenFromCookie(req, res) {
-    var token = req.signedCookies.entkn;
-    console.log("token:"+ token);
+    var token = req.signedCookies[config.COOKIE_TOKEN_NAME];
     return token;
 }
 
@@ -78,6 +77,21 @@ router.get('/oauth', function(req, res) {
     });
 });
 
+router.get('/clear', function(req, res) {
+    var token = '';
+
+    if (token = readTokenFromCookie(req, res)) {
+        req.session.oauthAccessToken = token;
+    }
+
+    res.clearCookie(config.COOKIE_TOKEN_NAME);
+    req.session.destroy();
+
+
+    res.redirect('/');
+});
+
+
 // http://{server}/en/oauth_callback
 router.get('/oauth_callback', function(req, res) {
     var client = new Evernote.Client({
@@ -95,7 +109,7 @@ router.get('/oauth_callback', function(req, res) {
             if (error) {
                 console.log('error');
                 console.log(error);
-                res.redirect('/en');
+                res.redirect('/');
             } else {
                 // store the access token in the session
                 req.session.oauthAccessToken = oauthAccessToken;
@@ -108,7 +122,7 @@ router.get('/oauth_callback', function(req, res) {
 
                 // save auth token to cookie
                 writeTokenToCookie(req, res, oauthAccessToken);
-                res.redirect('/en');
+                res.redirect('/');
             }
         });
 });
@@ -172,19 +186,6 @@ router.get('/notebooks', function(req, res) {
         res.status(500).send('Evernote login is required.');
     }
 });
-
-
-function asyncCreateNotes(enNotes) {
-    var iteration = [];
-
-
-
-
-    // Create a note with ENEX.
-
-
-}
-
 
 
 // todo:test code...
