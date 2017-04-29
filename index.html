@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Temp.latte - Save a note at once!</title>
+    <title>Temp.latte - Save a note template at once!</title>
 
     <link rel="stylesheet" href="css/core.min.css" />
     <link rel="stylesheet" href="css/templatte.css" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
 </head>
 <body class="shop home-page">
 <div class="wrapper">
@@ -42,131 +47,14 @@
         <!-- Content -->
         <div class="content clearfix">
             <div class="row flex">
-                <div class="column bkg-grey-ultralight align-center">Once a click, save a note template!</div>
+                <div class="column bkg-grey-ultralight align-center">Save a note template at once!</div>
             </div>
         </div>
         <!-- Content end -->
-        <div class="row">
-            <!-- grid/row1/col1 -->
-            <div class="column width-4 ">
-                <p/>
-                <div class="box rounded bkg-grey-ultralight" >
-                    <div class="row">
-                        <div class="column">
-                            <h5>한글Template Note Title</h5>
-                        </div>
-                    </div>
-                    <div class="row pt-20">
-                        <div class="column">
-                            <div class="thumbnail overlay-img-scale-in">
-                                <a href="#" class="overlay-link">
-                                    <img src="templates/1/img" alt="">
-                                    <span class="overlay-info">
-                                        <span>
-                                            <span>
-                                                Content of Note text here
-                                            </span>
-                                        </span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pt-20">
-                        <div class="column">
-                            <div class="align-center">
-                                <a href="#">
-                                    <h6>
-                                        <!--<span class="icon-inbox"></span>-->
-                                        Save
-                                    </h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="template_content">
+            <div class="row template_row" >
             </div>
-
-            <!-- grid/row1/col2 -->
-            <div class="column width-4 ">
-                <p/>
-                <div class="box rounded bkg-grey-ultralight" >
-                    <div class="row">
-                        <div class="column">
-                            <h5>한글Template Note Title</h5>
-                        </div>
-                    </div>
-                    <div class="row pt-20">
-                        <div class="column">
-                            <div class="thumbnail overlay-img-scale-in">
-                                <a href="#" class="overlay-link">
-                                    <img src="templates/1/img" alt="">
-                                    <span class="overlay-info">
-                                <span>
-                                    <span>
-                                        Content of Note text here
-                                    </span>
-                                </span>
-                            </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pt-20">
-                        <div class="column">
-                            <div class="align-center">
-                                <a href="#">
-                                    <h6>
-                                        <!--<span class="icon-inbox"></span>-->
-                                        Save
-                                    </h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column width-4 ">
-                <p/>
-                <div class="box rounded bkg-grey-ultralight" >
-                    <div class="row">
-                        <div class="column">
-                            <h5>한글Template Note Title</h5>
-                        </div>
-                    </div>
-                    <div class="row pt-20">
-                        <div class="column">
-                            <div class="thumbnail overlay-img-scale-in">
-                                <a href="#" class="overlay-link">
-                                    <img src="templates/2/img" alt="">
-                                    <span class="overlay-info">
-                                <span>
-                                    <span>
-                                        Content of Note text here
-                                    </span>
-                                </span>
-                            </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pt-20">
-                        <div class="column">
-                            <div class="align-center">
-                                <a href="#">
-                                    <h6>
-                                        <!--<span class="icon-inbox"></span>-->
-                                        Save
-                                    </h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
 
         <!-- Footer -->
         <footer class="footer">
@@ -209,6 +97,90 @@
 <script type="text/javascript" src="/js/timber.js"></script>
 <!-- script in the page -->
 <script>
+
+    var selected_notebook_guid = '';
+
+    var template_column_fmt = `
+        <div class="column width-4 ">
+            <p/>
+            <div class="box rounded bkg-grey-ultralight" >
+                <div class="row">
+                    <div class="column template_title">
+                        <h5>Title</h5>
+                    </div>
+                </div>
+                <div class="row pt-20">
+                    <div class="column">
+                        <div class="thumbnail img-scale-in color-charcoal" data-hover-easing="easeInOut"
+                             data-hover-bkg-color="#F4F4F4" data-hover-bkg-opacity="0.5">
+                            <a href="#" class="overlay-link">
+                                <img class="template_thumbnail" src="templates/1/img" alt="">
+                                <span class="overlay-info">
+                                    <span>
+                                        <span class="template_description">
+                                            Description
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-20">
+                    <div class="column">
+                        <div class="align-center">
+                            <a href="#" class="template_save">
+                                <h6>
+                                    <!--<span class="icon-inbox"></span>-->
+                                    Save
+                                </h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+    function template_handler() {
+        console.log($(this).parent());
+        console.log($(this).attr("tid"));
+
+        $.ajax( {
+            url:"/en/note",
+            data: {
+                "tid": $(this).attr("tid"),
+                "nbguid": selected_notebook_guid }
+            } ).then(
+                function() { // todo: display progress or dialog box
+                    alert( 'Saved successfully' ) },
+                function() {
+                    alert( 'Failed to save' )
+        });
+    }
+
+    function dropdown_notebook_click_handler() {
+        console($(this).attr('guid'));
+    }
+
+    // Load and render templates
+    $.ajax({url:"/templates"}).then(
+        function(data, textStatus, jqXHR) {
+            let count = 0;
+            jqXHR['responseJSON'].templates.forEach( function(entry) {
+                entry['img_url'];
+                entry['note_url'];
+                count++;
+
+                let s = $(template_column_fmt);
+                s.find('.template_title h5').text(entry['title']);
+                s.find('.template_thumbnail').attr('src', entry['img_url']);
+                s.find('.template_save').attr('tid', entry['id']);
+                s.find('.template_save').on('click', template_handler);
+
+                $( ".template_row" ).append( s );
+            });
+        })
+
     $( document ).ready( function() {
         // Check the status of login
         $.when( $.ajax({ url: "/en/me",
@@ -217,21 +189,18 @@
         }))
             .then(
                 function(data, textStatus, jqXHR){
-                    $.when(
-                        $.ajax({ url: "/en/notebooks" })
-                    )
+                    $.when( $.ajax({ url: "/en/notebooks" }) )
                         .then(
                             function(data, textStatus, jqXHR){
                                 $("#en_login_text").text("Logout");
-                                var onclick_event_handler;
+                                var dropdown_close_handler;
 
                                 // Grab a existed event handler of <a>
                                 $("#en_notebook_dropdown ul li").find('a').each( function(idx) {
                                     $(this).each(function( idx ){
                                        let arr;
-                                       console.log($(this)[0]);
                                        arr = $._data( $(this)[0], "events");
-                                        onclick_event_handler = arr.click[0].handler;
+                                        dropdown_close_handler = arr.click[0].handler;
                                     });
                                 });
 
@@ -239,7 +208,6 @@
 
                                 jqXHR['responseJSON'].forEach(
                                     function(entry) {
-                                        console.log(entry);
                                         $("#en_notebook_dropdown ul").append(
                                             "<li><a href='#' guid='" + entry['guid'] +
                                             "'>" + entry['name'] + "</a></li>");
@@ -247,7 +215,7 @@
                                 );
 
                                 $("#en_notebook_dropdown ul li a").each( function( idx ) {
-                                    $(this).on('click', onclick_event_handler);
+                                    $(this).on('click', dropdown_close_handler);
                                 });
                             },
                             function(xhr, status, error) {

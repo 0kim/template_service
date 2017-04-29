@@ -91,7 +91,7 @@ var templates = [
 
 
 router.get('/', function(req, res, next) {
-    res.send(templList);
+    res.json(JSON.parse(templList));
 });
 
 router.get('/:id', function(req, res) {
