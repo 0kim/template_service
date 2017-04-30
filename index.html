@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Temp.latte - Save a note template at once!</title>
 
-    <link rel="stylesheet" href="css/core.min.css" />
-    <link rel="stylesheet" href="css/templatte.css" />
+    <link rel="stylesheet" href="/css/core.min.css" />
+    <link rel="stylesheet" href="/css/templatte.css" />
 
     <!--[if lt IE 9]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -52,8 +52,6 @@
         </div>
         <!-- Content end -->
         <div class="template_content">
-            <div class="row template_row" >
-            </div>
         </div>
 
         <!-- Footer -->
@@ -99,6 +97,11 @@
 <script>
 
     var selected_notebook_guid = '';
+
+    var template_row_fmt = `
+        <div class="row template_row" >
+        </div>
+    `;
 
     var template_column_fmt = `
         <div class="column width-4 ">
@@ -169,6 +172,11 @@
             jqXHR['responseJSON'].templates.forEach( function(entry) {
                 entry['img_url'];
                 entry['note_url'];
+
+                if( count % 3 == 0) {
+                    $(".template_content").append(template_row_fmt);
+                }
+
                 count++;
 
                 let s = $(template_column_fmt);
@@ -177,7 +185,7 @@
                 s.find('.template_save').attr('tid', entry['id']);
                 s.find('.template_save').on('click', template_handler);
 
-                $( ".template_row" ).append( s );
+                $( ".template_row:last" ).append( s );
             });
         })
 
