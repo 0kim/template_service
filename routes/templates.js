@@ -7,23 +7,23 @@ var templList = `{
         "service" : "template_service", 
         "templates" : [ 
             {
+                "id" : "2017-daily-note",
+                "title" : "2017 Daily Note",
+                "img_url" : "/templates/2017-daily-note/img",
+                "note_url" : "/templates/2017-daily-note/note"
+            },
+            {
+                "id" : "2017-weekly-note",
+                "title" : "2017 Weekly Note",
+                "img_url" : "/templates/2017-weekly-note/img",
+                "note_url" : "/templates/2017-weekly-note/note"
+            },
+            {
                 "id" : "1",
                 "title" : "Template Test",
                 "img_url" : "/templates/1/img",
                 "note_url" : "/templates/1/note"
             }, 
-            {
-                "id" : "2",
-                "title" : "노트 2",
-                "img_url" : "/templates/2/img",
-                "note_url" : "/templates/2/note"
-            },
-            {
-                "id" : "3",
-                "title" : "노트 3",
-                "img_url" : "/templates/3/img",
-                "note_url" : "/templates/3/note"
-            },
             {
                 "id" : "4",
                 "title" : "노트 4",
@@ -41,31 +41,25 @@ var templList = `{
                 "title" : "노트 6",
                 "img_url" : "/templates/6/img",
                 "note_url" : "/templates/6/note"
-            },
-            {
-                "id" : "7",
-                "title" : "노트 7",
-                "img_url" : "/templates/7/img",
-                "note_url" : "/templates/7/note"
-            } 
+            }
         ]      
     }`;
 
 var templates = [
     {
+        'id' : '2017-daily-note',
+        'enex_file' : 'note_daily.enex',
+        'thumb_img' : 'note_daily.png'
+    },
+    {
+        'id' : '2017-weekly-note',
+        'enex_file' : 'note_weekly.enex',
+        'thumb_img' : 'note_weekly.png'
+    },
+    {
         'id' : '1',
         'enex_file' : 'template_test.enex',
         'thumb_img' : 'template_test.png'
-    },
-    {
-        'id' : '2',
-        'enex_file' : 'tmpl_01.enex',
-        'thumb_img' : 'tmpl_01.png'
-    },
-    {
-        'id' : '3',
-        'enex_file' : 'tmpl_01.enex',
-        'thumb_img' : 'tmpl_01.png'
     },
     {
         'id' : '4',
@@ -79,11 +73,6 @@ var templates = [
     },
     {
         'id' : '6',
-        'enex_file' : 'tmpl_01.enex',
-        'thumb_img' : 'tmpl_01.png'
-    },
-    {
-        'id' : '7',
         'enex_file' : 'tmpl_01.enex',
         'thumb_img' : 'tmpl_01.png'
     }
