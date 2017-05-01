@@ -7,7 +7,6 @@ var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var favicon    = require('serve-favicon');
 var morgan = require('morgan');
-var rfs = require('rotating-file-stream');
 var winston = require('winston');
 require('winston-daily-rotate-file');
 
