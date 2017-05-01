@@ -31,13 +31,13 @@
                         <div id="en_notebook_dropdown" class="dropdown inline medium lspacing-small bkg-grey-light" >
                             <a href="#" class="button">Notebook<span class="icon-down-open"></span></a>
                             <ul class="dropdown-list">
-                                <li><a href="#">No Notebook</a></li>
+                                <li><a href="#">Login required</a></li>
                             </ul>
                         </div>
                         <!-- Login Button -->
                         <a href="/en/oauth" class="button small border-grey bkg-hover-grey-light color-hover-white rounded">
                             <span id="en_login_icon" class="icon-evernote medium color-grey v-align-middle"></span>
-                            <span id="en_login_text">Login</span>
+                            <span id="en_login_text"></span>
                         </a>
                     </div>
                 </div>
@@ -145,9 +145,7 @@
         </div>`;
 
     function template_handler() {
-        console.log($(this).parent());
-        console.log($(this).attr("tid"));
-
+        console.log(selected_notebook_guid);
         $.ajax( {
             url:"/en/note",
             data: {
@@ -162,7 +160,7 @@
     }
 
     function dropdown_notebook_click_handler() {
-        console($(this).attr('guid'));
+        selected_notebook_guid=$(this).attr('guid');
     }
 
     // Load and render templates
@@ -177,8 +175,6 @@
                     $(".template_content").append(template_row_fmt);
                 }
 
-                count++;
-
                 let s = $(template_column_fmt);
                 s.find('.template_title h5').text(entry['title']);
                 s.find('.template_thumbnail').attr('src', entry['img_url']);
@@ -186,6 +182,7 @@
                 s.find('.template_save').on('click', template_handler);
 
                 $( ".template_row:last" ).append( s );
+                count++;
             });
         })
 
@@ -224,6 +221,7 @@
 
                                 $("#en_notebook_dropdown ul li a").each( function( idx ) {
                                     $(this).on('click', dropdown_close_handler);
+                                    $(this).on('click', dropdown_notebook_click_handler);
                                 });
                             },
                             function(xhr, status, error) {

@@ -24,7 +24,6 @@ function readTokenFromCookie(req, res) {
     return token;
 }
 
-
 // http://{server}/en/
 router.get('/', function(req, res) {
     var token = '';
@@ -203,6 +202,7 @@ router.get('/note', function(req, res) {
         var note = {};
         var templateId = req.query.tid;
         var notebookGuid = req.query.nbguid;
+        console.log("Notebook Guid: " + notebookGuid);
 
         if (!templateId) {
             res.status(400).render('en/note', {
@@ -267,6 +267,9 @@ router.get('/note', function(req, res) {
                 enNote.content = n.content;
                 enNote.title = n.title;
                 enNote.resources = enResources;
+
+                if( notebookGuid != '')
+                    enNote.notebookGuid = notebookGuid;
 
                 enNotes.push(enNote);
 
