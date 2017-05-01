@@ -11,6 +11,30 @@ const util = require('util');
 var callbackUrl = config.EN_CALLBACK_BASE_URL + "/en/oauth_callback";
 var templateUrlFmt = config.EN_TEMPLATE_BASE_URL + "/templates/%s/note";
 
+function getEvernoteClientParamsToken( token ) {
+    return {
+        token: token,
+        sandbox: config.EN_API_IS_SANDBOX,
+        china: config.EN_API_IS_CHINA
+    };
+}
+
+function getEvernoteClientParamsKey() {
+    return {
+        consumerKey: config.EN_API_CONSUMER_KEY,
+        consumerSecret: config.EN_API_CONSUMER_SECRET,
+        sandbox: config.EN_API_IS_SANDBOX,
+        china: config.EN_API_IS_CHINA
+    };
+}
+
+function setResponseContentTypeWithHtml(response) {
+    response.setHeader('Content-Type', 'text/html');
+}
+
+function setResponseContentTypeWithJson(response) {
+    response.setHeader('Content-Type', 'application/json');
+}
 
 function writeTokenToCookie(req, res, value){
     res.cookie( config.COOKIE_TOKEN_NAME,
@@ -28,17 +52,15 @@ function readTokenFromCookie(req, res) {
 router.get('/', function(req, res) {
     var token = '';
 
+    setResponseContentTypeWithHtml(res);
+
     if (token = readTokenFromCookie(req, res)) {
         req.session.oauthAccessToken = token;
     }
 
     if (req.session.oauthAccessToken) {
         token = req.session.oauthAccessToken;
-        var client = new Evernote.Client({
-            token: token,
-            sandbox: config.EN_API_IS_SANDBOX,
-            china: config.EN_API_IS_CHINA
-        });
+        var client = new Evernote.Client( getEvernoteClientParamsToken( token ) );
         client.getNoteStore().listNotebooks().then(function(notebooks) {
             req.session.notebooks = notebooks;
             res.render('en/index', {session: req.session});
@@ -54,12 +76,7 @@ router.get('/', function(req, res) {
 
 // http://{server}/en/oauth
 router.get('/oauth', function(req, res) {
-    var client = new Evernote.Client({
-        consumerKey: config.EN_API_CONSUMER_KEY,
-        consumerSecret: config.EN_API_CONSUMER_SECRET,
-        sandbox: config.EN_API_IS_SANDBOX,
-        china: config.EN_API_IS_CHINA
-    });
+    var client = new Evernote.Client( getEvernoteClientParamsKey() );
 
     client.getRequestToken(callbackUrl, function (error, oauthToken, oauthTokenSecret, results) {
         if (error) {
@@ -86,19 +103,13 @@ router.get('/clear', function(req, res) {
     res.clearCookie(config.COOKIE_TOKEN_NAME);
     req.session.destroy();
 
-
     res.redirect('/');
 });
 
 
 // http://{server}/en/oauth_callback
 router.get('/oauth_callback', function(req, res) {
-    var client = new Evernote.Client({
-        consumerKey: config.EN_API_CONSUMER_KEY,
-        consumerSecret: config.EN_API_CONSUMER_SECRET,
-        sandbox: config.EN_API_IS_SANDBOX,
-        china: config.EN_API_IS_CHINA
-    });
+    var client = new Evernote.Client( getEvernoteClientParamsKey() );
 
     client.getAccessToken(
         req.session.oauthToken,
@@ -106,7 +117,6 @@ router.get('/oauth_callback', function(req, res) {
         req.query.oauth_verifier,
         function (error, oauthAccessToken, oauthAccessTokenSecret, results) {
             if (error) {
-                console.log('error');
                 console.log(error);
                 res.redirect('/');
             } else {
@@ -129,36 +139,31 @@ router.get('/oauth_callback', function(req, res) {
 
 // http://{server}/en/me
 router.get('/me', function(req, res) {
+    setResponseContentTypeWithJson(res);
+
     if (req.session.oauthAccessToken) {
         var token = req.session.oauthAccessToken;
-        var client = new Evernote.Client({
-            token: token,
-            sandbox: config.EN_API_IS_SANDBOX,
-            china: config.EN_API_IS_CHINA
-        })
-
+        var client = new Evernote.Client( getEvernoteClientParamsToken( token ) );
         var userStore = client.getUserStore();
 
         userStore.getUser().then( function(user) {
-            // user is the returned User object
-            // res.send(user);
-            res.render('en/me', {user: user, session: req.session, title: "Evernote user store"});
+            res.status(200).send( JSON.stringify( { user: user, session: req.session }));
+        }, function(error) {
+            res.status(500).send( JSON.stringify( { error: error }));
         });
     } else {
-        res.send(user, 401);
+        res.status(401).send( { error: 'Authentication is required' } );
     }
 });
 
 
 // http://{server}/en/notebooks
 router.get('/notebooks', function(req, res) {
+    setResponseContentTypeWithJson( res );
+
     if (req.session.oauthAccessToken) {
         var token = req.session.oauthAccessToken;
-        var client = new Evernote.Client({
-            token: token,
-            sandbox: config.EN_API_IS_SANDBOX,
-            china: config.EN_API_IS_CHINA
-        });
+        var client = new Evernote.Client( getEvernoteClientParamsToken( token ) );
 
         client.getNoteStore().listNotebooks().then(function (notebooks) {
             var retNotebooks = [];
@@ -168,21 +173,15 @@ router.get('/notebooks', function(req, res) {
                     retNotebooks.push({});
                     retNotebooks[i]['name'] = notebooks[i].name;
                     retNotebooks[i]['guid'] = notebooks[i].guid;
-                    console.log(retNotebooks);
-                    console.log("NAME: " + notebooks[i].name);
-                    console.log("GUID: " + notebooks[i].guid);
                 }
             }
 
-            res.status(200).send(retNotebooks);
+            res.status(200).send( JSON.stringify( retNotebooks ));
         }, function (error) {
-            req.session.error = JSON.stringify(error);
-            res.status(500).send(error);
+            res.status(500).send( { error: error });
         });
-    }
-    else
-    {
-        res.status(500).send('Evernote login is required.');
+    } else {
+        res.status(401).send( { error: 'Authentication is required' } );
     }
 });
 
@@ -190,25 +189,26 @@ router.get('/notebooks', function(req, res) {
 // todo:test code...
 // http://{server}/en/note
 router.get('/note', function(req, res) {
+    setResponseContentTypeWithJson( res );
+
     if (req.session.oauthAccessToken) {
         var token = req.session.oauthAccessToken;
-        var client = new Evernote.Client({
-            token: token,
-            sandbox: config.EN_API_IS_SANDBOX,
-            china: config.EN_API_IS_CHINA
-        });
+        var client = new Evernote.Client( getEvernoteClientParamsToken( token ) );
 
         var noteStore = client.getNoteStore();
         var note = {};
         var templateId = req.query.tid;
         var notebookGuid = req.query.nbguid;
-        console.log("Notebook Guid: " + notebookGuid);
 
         if (!templateId) {
-            res.status(400).render('en/note', {
-                title:  "EN/Note",
-                error: "tid(\'Template Id\') is note specified."});
+            res.status(400).send(
+                JSON.stringify( {
+                    status : 400,
+                    error: "tid(\'Template Id\') is note specified."
+                } ));
+            console.log("TEST TEST....11111");
             return;
+            console.log("TEST TEST....22222");
         }
 
         var enexUrl = util.format(templateUrlFmt, templateId);
@@ -216,8 +216,7 @@ router.get('/note', function(req, res) {
         var body = '';
 
         request.get(enexUrl).on('response', function (response) {
-            console.log(response.statusCode);
-            console.log(response.headers['content-type']);
+            // Success
         }).on('error', function (err) {
             res.status(400).send(err); // todo
             return;
@@ -226,12 +225,9 @@ router.get('/note', function(req, res) {
         }).on('end', function () {
             res.set('Content-Type', 'text/xml');
 
-            console.log("request/data/length: " + body.length);
-
             var pp = new parser.EnexParser();
 
             pp.init();
-            console.log(body.toString('utf8'));
             pp.parse(body);
 
             var enexNotes = pp.getNotes();
@@ -275,15 +271,15 @@ router.get('/note', function(req, res) {
 
             }
 
-            // Wait for until creating multiple or single notes on Evernote account
+            // Wait for the completion of note(s) creation on Evernote account
             var iteration = [];
             for (let i in enNotes) {
-                iteration.push(noteStore.createNote(enNotes[i]).then(function(){createdNoteCount++;}, function(error){}));
+                iteration.push(
+                    noteStore.createNote(enNotes[i]).then(
+                        function(){ createdNoteCount++; }, function(error){ }));
             }
-
             Promise.all(iteration)
                 .then(function (output) {
-                    console.log('All notes are created successfully...');
                     res.status(200).render('en/note', {
                             title: "EN/Note",
                             output: createdNoteCount.toString() + " notes are posted."
@@ -299,7 +295,7 @@ router.get('/note', function(req, res) {
                 });
         });
     } else {
-        res.status(404).render('en/note', {
+        res.status(401).render('en/note', {
                             title: "EN/Note",
                             error: "Unable to load access token..."});
         return;

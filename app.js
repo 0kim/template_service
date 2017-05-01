@@ -6,6 +6,10 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var favicon    = require('serve-favicon');
+var morgan = require('morgan');
+var rfs = require('rotating-file-stream');
+var winston = require('winston');
+require('winston-daily-rotate-file');
 
 var routeIndex = require('./routes/index');
 var routeUsers = require('./routes/users');
@@ -13,6 +17,53 @@ var routeTemplates = require('./routes/templates');
 var routeEvernote = require('./routes/evernote');
 
 var app = express();
+
+// Logging
+logDirectory = path.join(__dirname, 'log');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+var transport_drf = new winston.transports.DailyRotateFile( {
+    filename: path.join(logDirectory, '.log'),
+    datePattern: 'yyyy-MM-dd',
+    localtime: true,
+    prepend: true,
+    level: process.env.ENV === 'development' ? 'debug' : 'info'
+});
+
+var transport_console =  new winston.transports.Console({
+    handleExceptions: true,
+    json: false,
+    colorize: true,
+    level: process.env.ENV === 'development' ? 'debug' : 'info',
+});
+
+var logger = new (winston.Logger) ({
+    transports: [
+      transport_drf,
+      transport_console
+    ],
+    exitOnError: false
+});
+
+logger.stream = {
+    write: function(message, encoding){
+        logger.info(JSON.parse(message));
+    }
+};
+
+app.use(morgan(
+    '{"remote_addr": ":remote-addr", ' +
+     '"remote_user": ":remote-user", ' +
+    '"date": ":date[clf]", ' +
+    '"method": ":method", ' +
+    '"url": ":url", ' +
+    '"http_version": ":http-version", ' +
+    '"status": ":status", ' +
+    '"result_length": ":res[content-length]", ' +
+    '"referrer": ":referrer", ' +
+    '"user_agent": ":user-agent", ' +
+    '"response_time": ":response-time"}', {stream: logger.stream}));
+logger.info("logger is ready");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -55,7 +106,6 @@ app.post('/template', function (req, res) {
   console.log("subject : " + subject);
   console.log("url     : " + url);
   console.log("enexUrl : " + enexUrl);
-
 });
 
 // error handler
@@ -68,5 +118,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+logger.info("Application is ready to serve");
 
 module.exports = app;

@@ -80,6 +80,7 @@ var templates = [
 
 
 router.get('/', function(req, res, next) {
+    res.setHeader('content-type', 'application/json');
     res.json(JSON.parse(templList));
 });
 
@@ -113,9 +114,6 @@ router.get('/:id/img', function(req, res) {
             console.log(err);
             res.status(err.status).end();
         }
-        else {
-            console.log('Sent:', fileName);
-        }
     });
 });
 
@@ -143,11 +141,7 @@ router.get('/:id/note', function(req, res) {
             console.log(err);
             res.status(err.status).end();
         }
-        else {
-            console.log('Sent:', fileName);
-        }
     });
 });
-
 
 module.exports = router;
