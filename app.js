@@ -17,6 +17,8 @@ var routeEvernote = require('./routes/evernote');
 
 var app = express();
 
+app.set('trust proxy', true);
+
 // Logging
 logDirectory = path.join(__dirname, 'log');
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
