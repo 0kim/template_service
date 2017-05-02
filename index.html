@@ -17,28 +17,33 @@
     <div class="wrapper-inner">
         <header class="header">
             <div class="header-inner">
-                <div class="row nav-bar pt-10">
-                    <div class="column width-1 nav-bar-inner">
-                        <div class="logo ">
-                            <div class="logo-inner">
-                                <a href="#"><img src="images/templatte.png" alt="logo" /></a>
+                <div class="row nav-bar pt-10 bkg-grey-ultralight">
+                    <div class="column width-12 nav-bar-inner">
+                        <div class="left ">
+                            <div class="logo">
+                                <div class="logo-inner">
+                                    <a href="#">
+                                        <img src="images/templatte.png" alt="logo"></img>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="column width-11 align-right">
-                        <!-- todo: 우축으로 정렬할 것 -->
-                        <!-- Notebook List -->
-                        <div id="en_notebook_dropdown" class="dropdown inline medium lspacing-small bkg-grey-light" >
-                            <a href="#" class="button">Notebook<span class="icon-down-open"></span></a>
-                            <ul class="dropdown-list">
-                                <li><a href="#">Login required</a></li>
-                            </ul>
+                        <div class="right ">
+                            <div id="en_notebook_dropdown" class="dropdown inline medium lspacing-small width-15rem" >
+                                <a href="#" class="button en_notebook_dropdown_text border-grey bkg-hover-grey-light color-hover-white rounded">
+                                    Notebook
+                                    <span class="icon-down-open"></span>
+                                </a>
+                                <ul class="dropdown-list">
+                                    <li><a href="#">Login required</a></li>
+                                </ul>
+                            </div>
+                            <!-- Login Button -->
+                            <a href="/en/oauth" class="button small border-grey bkg-grey bkg-hover-grey-light color-hover-white rounded width-5rem left">
+                                <span id="en_login_icon" class="icon-evernote medium color-grey v-align-middle"></span>
+                                <span id="en_login_text"></span>
+                            </a>
                         </div>
-                        <!-- Login Button -->
-                        <a href="/en/oauth" class="button small border-grey bkg-hover-grey-light color-hover-white rounded">
-                            <span id="en_login_icon" class="icon-evernote medium color-grey v-align-middle"></span>
-                            <span id="en_login_text"></span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -47,40 +52,28 @@
         <!-- Content -->
         <div class="content clearfix">
             <div class="row flex">
-                <div class="column bkg-grey-ultralight align-center">Save a note template at once!</div>
+                <div class="column bkg-grey-light align-center color-white content_slogan">
+                    <span class="v-align-middle">Save a note template at once!</span></div>
+            </div>
+            <div class="template_content ">
             </div>
         </div>
         <!-- Content end -->
-        <div class="template_content">
-        </div>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="footer ">
             <div class="footer-top">
-                <div class="row flex bkg-grey-ultralight pt-20">
-                    <div class="column width-3">
-                        <div class="widget">
-                            <h6 class="widget-title">Save a template<br>by single click</h6>
-                        </div>
-                    </div>
-                    <div class="column width-3">
-                        <div class="widget">
-                            <ul>
-                                <li>
-                                    <a href="#">What is?</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column width-6 right left-on-mobile">
-                        <div class="widget">
-                            <ul class="social-list list-horizontal">
-                                <li><a href="#"><span class="icon-facebook small"></span></a></li>
-                            </ul>
-                            <p class="copyright">
-                                Templatte
-                            </p>
-                        </div>
+                <div class="row flex bkg-grey-light">
+                    <div class="column width-12 left left-on-mobile ">
+                        <p class="copyright color-white pt-10">
+                            Templatte
+                        </p>
+                        <!--<div class="widget">-->
+                            <!--<ul class="social-list list-horizontal">-->
+                                <!--<li><a href="#"><span class="icon-facebook small"></span></a></li>-->
+                            <!--</ul>-->
+
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -104,18 +97,13 @@
     `;
 
     var template_column_fmt = `
-        <div class="column width-4 ">
+        <div class="column width-4">
             <p/>
             <div class="box rounded bkg-grey-ultralight" >
                 <div class="row">
-                    <div class="column template_title">
-                        <h5>Title</h5>
-                    </div>
-                </div>
-                <div class="row pt-20">
                     <div class="column">
                         <div class="thumbnail img-scale-in color-charcoal" data-hover-easing="easeInOut"
-                             data-hover-bkg-color="#F4F4F4" data-hover-bkg-opacity="0.5">
+                             data-hover-bkg-color="#F4F4F4" data-hover-bkg-opacity="0.9">
                             <a href="#" class="overlay-link">
                                 <img class="template_thumbnail" src="templates/1/img" alt="">
                                 <span class="overlay-info">
@@ -129,16 +117,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="row pt-20">
-                    <div class="column">
-                        <div class="align-center">
-                            <a href="#" class="template_save">
-                                <h6>
-                                    <!--<span class="icon-inbox"></span>-->
-                                    Save
-                                </h6>
-                            </a>
-                        </div>
+                <div class="row">
+                    <div class="template_title ">
+                        <span class="icon-publish template_save color-grey color-hover-green medium v-align-middle"></span>
+                        <span class="template_title_txt">
+                            Title
+                        </span>
                     </div>
                 </div>
             </div>
@@ -160,6 +144,8 @@
     }
 
     function dropdown_notebook_click_handler() {
+        console.log();
+        $(".en_notebook_dropdown_text").text($(this).attr('name'));
         selected_notebook_guid=$(this).attr('guid');
     }
 
@@ -176,7 +162,7 @@
                 }
 
                 let s = $(template_column_fmt);
-                s.find('.template_title h5').text(entry['title']);
+                s.find('.template_title_txt').text(entry['title']);
                 s.find('.template_thumbnail').attr('src', entry['img_url']);
                 s.find('.template_save').attr('tid', entry['id']);
                 s.find('.template_save').on('click', template_handler);
@@ -215,6 +201,7 @@
                                     function(entry) {
                                         $("#en_notebook_dropdown ul").append(
                                             "<li><a href='#' guid='" + entry['guid'] +
+                                            "' name='" + entry['name'] +
                                             "'>" + entry['name'] + "</a></li>");
                                     }
                                 );

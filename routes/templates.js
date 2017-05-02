@@ -23,24 +23,6 @@ var templList = `{
                 "title" : "Template Test",
                 "img_url" : "/templates/1/img",
                 "note_url" : "/templates/1/note"
-            }, 
-            {
-                "id" : "4",
-                "title" : "노트 4",
-                "img_url" : "/templates/4/img",
-                "note_url" : "/templates/4/note"
-            },
-            {
-                "id" : "5",
-                "title" : "노트 5",
-                "img_url" : "/templates/5/img",
-                "note_url" : "/templates/5/note"
-            }, 
-            {
-                "id" : "6",
-                "title" : "노트 6",
-                "img_url" : "/templates/6/img",
-                "note_url" : "/templates/6/note"
             }
         ]      
     }`;

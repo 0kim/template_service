@@ -2,8 +2,8 @@
 
 .logo-inner
 {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .pt-10
@@ -30,5 +30,51 @@
 .widget {
     font-size: 1.2rem;
     color: #999000;
+}
 
+.template_title {
+    margin-left:1.5rem;
+    font-size: 1.5rem;
+    height: 3rem !important;
+}
+
+.template_title_txt {
+    margin-left:1rem;
+}
+
+.template_save {
+    height: 3rem
+}
+
+.template_save_button {
+    font-size: 1.8rem;
+}
+
+.thumbnail {
+    margin-bottom: 1rem !important;
+}
+
+.label {
+    background: transparent !important;
+    border: transparent !important;
+}
+
+.copyright:before {
+    content:"\00a9";
+}
+
+footer {
+    padding-bottom: 0rem !important;
+}
+
+.width-15rem {
+    width: 15rem !important;
+}
+
+.width-5rem {
+    width: 10rem !important;
+}
+
+.content_slogan{
+    height: 4rem;
 }
