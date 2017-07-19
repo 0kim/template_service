@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export2.dtd">
+<en-export export-date="20170703T080727Z" application="Evernote/Windows" version="6.x">
+<note><title>명함 템플릿</title><content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note style="padding-left: 0px 10px 0px 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #808080;
+  font-family: Helvetica;">
+	
+	<!-- begin span 1 -->
+	<div style="x-evernote:contact">
+    
+    <!-- begin div 1 -->
+    <div style="height: 100%;">
+      
+      <div style="x-evernote:contact-info-section">
+        <!-- begin div 2 -->
+        <div>
+          
+          <!-- begin div 4 -->
+          <div style="margin: 20px 35px 20px 10px;
+            width: 330px;
+            float: left;">
+            
+            <!-- begin div 8 - PHOTO -->
+            <div style="float:left;x-evernote:profile-image;-evernote-editable:profile-image;">
+              <en-media style="width:80px;height:80px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius: 3px;box-shadow:0 1px 3px rgba(0,0,0,.6);margin-left:10px;" hash="dcaddd94bcbc399c07fdf94dee064217" type="image/jpeg" />
+            </div>
+            <!-- end div 8 -->
+            
+            <!-- begin div 9 - JOB TITLE/COMPANY -->
+            <div style="float: left; width: 150px; padding-left: 25px;">
+              
+              <p style="display:none;margin:0;padding:0; ">
+						  
+							<span style="x-evernote:family-name;margin:0;padding:0;"></span>
+							<span style="x-evernote:given-name;margin:0;padding:0;"></span>
+              
+              </p>
+              
+              <p style="color:black;
+              font-family:Helvetica;
+              font-size:14px;
+              line-height:20px;
+              margin:0;
+              padding:0;">
+						  
+              <span>
+                <span style="x-evernote:display-as;
+                  -evernote-editable:field;
+                  font-size: 18px;
+                  display: block;
+                  margin-bottom: 2px;
+                  font-family: Helvetica;
+                  color: #5f5f5f;
+                  line-height: 24px;"><!--x-evernote:display-as--></span>
+              </span>
+              
+							<span>
+								<span style="x-evernote:contact-title;
+                  -evernote-editable:field;
+                  font-size: 18px;
+                  display: block;
+                  margin-bottom: 2px;
+                  font-family: Helvetica;
+                  color: #5f5f5f;
+                  line-height: 24px;"></span>
+							</span>
+              
+							<span>
+								<span style="x-evernote:contact-org;
+                  -evernote-editable:field;
+                  font-size: 16px;
+                  font-family: Helvetica;
+                  color: #6f6f6f;
+                  line-height: 22px;"></span>
+							</span>
+              
+							<!--x-evernote:contact-url-->
+              
+              </p>
+              
+            </div>
+            <!-- end div 9 -->
+            
+          </div>
+          <!-- end div 4 -->
+          
+          <!-- begin div 5 -->
+          <div style="float: left;
+            margin: 0;
+            margin-top: 20px;
+            margin-left: 15px;
+            padding-bottom: 18px;
+            font-size: 15px;
+            line-height: 26px;
+            min-width: 400px;">
+            
+            
+						
+						
+						
+<!-- Beginning of E-mail -->
+<div style="float: left; clear: left; min-width: 400px;overflow:hidden; _overflow:visible; zoom:1;">
+  <div style="margin: 0;padding: 0;text-align: left;overflow:hidden; _overflow:visible; zoom:1;margin-bottom:6px;">
+    <div style="x-evernote:email; -evernote-editable:email; word-wrap: break-word;">
+      <div style="float: left;margin: 0;padding: 0;width: 77px;text-align: left;">
+        <p style="margin:0;padding:0;">
+          <span style="-webkit-appearance: none;border: none;color: #aaaaaa;font-size: 14px;font-family: Helvetica;">
+            <span style="x-evernote:context;-evernote-context-name:email">Email</span>
+          </span>
+        </p>
+      </div>
+      <div style="x-evernote:value; color: #6f6f6f;"></div>
+    </div>
+  </div>
+</div>
+<!-- End of e-mail -->
+
+<!-- Beginning of Mobile -->
+<div style="float: left; clear: left; min-width: 400px;overflow:hidden; _overflow:visible; zoom:1;">
+  <div style="margin: 0;padding: 0;text-align: left;overflow:hidden; _overflow:visible; zoom:1;margin-bottom:6px;">
+    <div style="x-evernote:phone; -evernote-editable:phone; word-wrap: break-word;">
+      <div style="float: left;margin: 0;padding: 0;width: 77px;text-align: left;">
+        <p style="margin:0;padding:0;"><span style="-webkit-appearance: none;border: none;color: #aaaaaa;font-size: 14px;font-family: Helvetica;">
+          <span style="x-evernote:context;-evernote-context-name:mobile">Mobile</span>
+        </span>
+      </p>
+    </div>
+    <span style="x-evernote:value; color: #6f6f6f;"></span>
+</div>
+<!-- End of Mobile -->
+
+<!-- Beginning of Work -->
+<div style="float: left; clear: left; min-width: 400px;overflow:hidden; _overflow:visible; zoom:1;">
+  <div style="margin: 0;padding: 0;text-align: left;overflow:hidden; _overflow:visible; zoom:1;margin-bottom:6px;">
+    <div style="x-evernote:phone; -evernote-editable:phone; word-wrap: break-word;"><div style="float: left;margin: 0;padding: 0;width: 77px;text-align: left;">
+      <p style="margin:0;padding:0;">
+        <span style="-webkit-appearance: none;border: none;color: #aaaaaa;font-size: 14px;font-family: Helvetica;">
+          <span style="x-evernote:context;-evernote-context-name:work">Work</span>
+        </span>
+      </p>
+    </div>
+    <span style="x-evernote:value; color: #6f6f6f;"></span>
+  </div>
+</div>
+<!-- end of Work --> 
+
+
+<!-- Beginning of Fax -->
+<div style="float: left; clear: left; min-width: 400px;overflow:hidden; _overflow:visible; zoom:1;">
+  <div style="margin: 0;padding: 0;text-align: left;overflow:hidden; _overflow:visible; zoom:1;margin-bottom:6px;">
+    <div style="x-evernote:phone; -evernote-editable:phone; word-wrap: break-word;">
+      <div style="float: left;margin: 0;padding: 0;width: 77px;text-align: left;">
+        <p style="margin:0;padding:0;">
+          <span style="-webkit-appearance: none;border: none;color: #aaaaaa;font-size: 14px;font-family: Helvetica;">
+            <span style="x-evernote:context;-evernote-context-name:fax">Fax</span>
+          </span>
+        </p>
+      </div>
+      <span style="x-evernote:value; color: #6f6f6f;">
+      </span>
+    </div>
+  </div>
+</div>
+<!-- End of Fax -->
+          </div>
+
+        </div>
+      </div>
+
+
+<!-- 주소 시작 -->
+<div style="float: left; clear: left; min-width: 400px;overflow:hidden; _overflow:visible; zoom:1;">
+  <div style="margin: 0;padding: 0;text-align: left;overflow:hidden; _overflow:visible; zoom:1;margin-bottom:6px;">
+    <div style="x-evernote:address;-evernote-editable:address;">
+      <div style="float: left;margin: 0;padding: 0;width: 77px;text-align: left;">
+        <p style="margin:0;padding:0;">
+          <span style="-webkit-appearance: none;border: none;color: #aaaaaa;font-size: 14px;font-family: Helvetica;">
+            <span style="x-evernote:context;-evernote-context-name:address">주소</span>
+          </span>
+        </p>
+      </div>
+      <div style="x-evernote:value;">
+        <a href="http://maps.google.com/?q="></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 주소 끝 -->       
+            
+<!-- twitter 시작 -->
+<div style="float: left; clear: left; min-width: 400px;overflow:hidden; _overflow:visible; zoom:1;">
+  <div style="margin: 0;padding: 0;text-align: left;overflow:hidden; _overflow:visible; zoom:1;margin-bottom:6px;">
+    <div style="x-evernote:twitter; -evernote-editable:twitter; word-wrap: break-word;">
+      <div style="float: left;margin: 0;padding: 0;width: 77px;text-align: left;">
+        <p style="margin:0;padding:0;">
+          <span style="-webkit-appearance: none;border: none;color: #aaaaaa;font-size: 14px;font-family: Helvetica;">
+            <span style="x-evernote:context;-evernote-context-name:twitter">Twitter</span>
+          </span>
+        </p>
+      </div>
+      <div style="x-evernote:value; color: #6f6f6f;">
+        <a href="http://twitter.com/"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- twitter 끝 -->
+						
+						
+          </div>
+          <!-- end div 5 -->
+          
+          
+          
+          
+          <div style="clear: both;"></div>
+        </div>
+        
+        <hr style="width: 100%;
+        border-top: 0 solid black;
+        border-bottom: 1px solid #e9e9e9;
+        border-left: 0 solid black;
+        border-right: 0 solid black;"/>
+      </div>
+      
+      <div style="x-evernote:note-body;-evernote-editable:textarea;margin-top:20px;margin-bottom:20px;">
+        <!--x-evernote:note-body-->
+      </div>
+      <div>
+      </div>
+      
+    </div>
+	</div>
+</en-note>
+]]></content><created>20170101T010101Z</created><tag>Scannable</tag><note-attributes><source>mobile.ios</source><source-application>businesscard</source-application><content-class>evernote.contact.1</content-class></note-attributes><resource><data encoding="base64">
+/9j/4AAQSkZJRgABAQAAAAAAAAD/4QCMRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUA
+AAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAAAAAAAAAQAA
+AAAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAKCgAwAEAAAAAQAAAKAAAAAA/+0AOFBob3Rv
+c2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/AABEIAKAA
+oAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQD
+BQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygp
+KjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJma
+oqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/
+xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQID
+EQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RF
+RkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqy
+s7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2wBDAAICAgICAgQC
+AgQGBAQEBggGBgYGCAoICAgICAoMCgoKCgoKDAwMDAwMDAwODg4ODg4QEBAQEBISEhISEhISEhL/
+2wBDAQMDAwUEBQgEBAgTDQsNExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMT
+ExMTExMTExMTExP/3QAEAAr/2gAMAwEAAhEDEQA/AP3QooooAKKKKACiiigAooooAKKKKACiiigA
+ooooAKKKKACiiigAooooA//Q/dCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+iigD/9H90KKKKACiiigAooooAKKKxfEM7waVIYzgthc+xPP6UAYuq+Jyjm307BxwXPP5f41x893d
+XJ3XEjP9TVeiqsTcsQXd1bHdbyMn0NdhpXicu4t9RwM8Bxx+Y/rXD0UWC57ZRWL4enefSozIclcr
+n2B4/StqpKCiiigAooooAKKKKAP/0v3QooooAKKKKACiiigArE8RR+ZpEuOowfyIrbrmPFF3Lb2a
+wx4xKSrfShAedUUUVZAUUUUAeo+HY/L0iLPfJ/MmtuuY8L3ctxZtDJjERCr9K6eoZYUUUUAFFFFA
+BRRRQB//0/3QooooAKKKKACiiigArnfE9s9xp26MFjGwPHPHQ10VFAHidFa2uW/2bVJUAwCdw/Hm
+smrJCiitbQ7f7TqkSEZAO4/hzQB2nhi2e304tICpkYnB446CuiooqCgooooAKKKKACiiigD/1P3Q
+ooooAKKKKACiiigAoorIv9bsNPykjbn/ALq8n8fSgDJ8WWsTWqXePnVgufY5rgK2NW1mfVHAYbI1
+6KP5mseqRLCu/wDCdrEtq93j52Yrn2GK4CtjSdZn0tyFG+Nuqn+Y96GCPVKKyLDW7DUMJG21/wC6
+3B/D1rXqSgooooAKKKKACiiigD//1f3QooooAKKKKACql5fWthF5ty20dh3P0FVNY1MaXa+aBudj
+hR7+przC5uZ7uUz3DFmPrTSE2bupeJLu8zFbfuo/b7x+p/wrm6KKYgooopiCiiigArpNN8SXdniK
+5/ex+/3h9D/jXN0UhnsNnfWt/F5ts24dx3H1FW68atrme0lE9uxVh6V6fo+pjVLXzSNrqcMPf1FJ
+oaZrUUUUhhRRRQB//9b90KKKKACiiigDivGOdtue3zf0riK9X1bS49VgETMUZTkHr+lcdN4U1KM/
+uijj2OD+tUmJo5mitaTQtWj+9Ax+mD/Kqradfp9+CQf8BNAinRUrQTr95GH1BqMgjqKYhKKUAnoK
+kWCdvuox+gNAEVFXF06/f7kEh/4CatR6Fq0n3YGH1wP50hmTXb+Ds7bj0+X+tZ0PhTUpD+9KIPc5
+P6V2Ok6XHpUBiVi7Mck9P0obGkatFFFSMKKKKAP/1/3QooooAKKKKACiiigAooooAKKKKACiiigA
+ooooAKKKKACiiigAooooA//Q/dCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+iigD/9k=
+</data><mime>image/jpeg</mime><width>160</width><height>160</height><recognition><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE recoIndex PUBLIC "SYSTEM" "http://xml.evernote.com/pub/recoIndex.dtd"><recoIndex docType="unknown" objType="image" objID="dcaddd94bcbc399c07fdf94dee064217" engineVersion="6.5.17.7" recoType="service" lang="en" objWidth="160" objHeight="160"/>
+]]></recognition></resource></note></en-export>
