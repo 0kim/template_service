@@ -24,7 +24,7 @@
                             <div class="logo">
                                 <div class="logo-inner">
                                     <a href="#">
-                                        <img src="images/templatte.png" alt="logo"></img>
+                                        <img src="images/templatte.png" alt="logo"/>
                                     </a>
                                 </div>
                             </div>
@@ -56,6 +56,7 @@
                 <div class="column bkg-grey-light align-center color-white content_slogan">
                     <span class="v-align-middle">Copy a note template at once!</span></div>
             </div>
+            <p></p>
             <div class="template_content ">
             </div>
         </div>
@@ -67,7 +68,7 @@
                 <div class="row flex bkg-grey-light">
                     <div class="column width-12 left left-on-mobile ">
                         <p class="copyright color-white pt-10">
-                            Templatte
+                            Templatte | support@cyville.net
                         </p>
                         <!--<div class="widget">-->
                             <!--<ul class="social-list list-horizontal">-->
@@ -99,7 +100,6 @@
 
     var template_column_fmt = `
         <div class="column width-4">
-            <p/>
             <div class="box rounded bkg-grey-ultralight" >
                 <div class="row">
                     <div class="column">
@@ -110,7 +110,7 @@
                                 <span class="overlay-info">
                                     <span>
                                         <span class="template_description">
-                                            Description
+                                            <!--Description-->
                                         </span>
                                     </span>
                                 </span>
@@ -140,7 +140,7 @@
                 function() { // todo: display progress or dialog box
                     alert( 'Saved successfully' ) },
                 function() {
-                    alert( 'Failed to save' )
+                    alert( 'Failed to save\nIf you are logged in, please log in and try again' )
         });
     }
 

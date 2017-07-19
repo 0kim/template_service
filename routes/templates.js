@@ -5,12 +5,24 @@ var _ = require('underscore');
 
 var templList = `{
         "service" : "template_service", 
-        "templates" : [ 
+        "templates" : [
+            {
+                "id" : "table_2x1",
+                "title" : "Table 2x1",
+                "img_url" : "/templates/table_2x1/img",
+                "note_url" : "/templates/table_2x1/note"
+            },
             {
                 "id" : "2017-daily-note",
                 "title" : "2017 Daily Note",
                 "img_url" : "/templates/2017-daily-note/img",
                 "note_url" : "/templates/2017-daily-note/note"
+            },
+            {
+                "id" : "bizcard",
+                "title" : "Evernote Empty Biz. Card",
+                "img_url" : "/templates/bizcard/img",
+                "note_url" : "/templates/bizcard/note"
             },
             {
                 "id" : "2017-weekly-note",
@@ -19,10 +31,22 @@ var templList = `{
                 "note_url" : "/templates/2017-weekly-note/note"
             },
             {
-                "id" : "1",
-                "title" : "Template Test",
-                "img_url" : "/templates/1/img",
-                "note_url" : "/templates/1/note"
+                "id" : "table_2x3",
+                "title" : "Table 2x3",
+                "img_url" : "/templates/table_2x3/img",
+                "note_url" : "/templates/table_2x3/note"
+            },
+            {
+                "id" : "table_2x6",
+                "title" : "Table 2x6",
+                "img_url" : "/templates/table_2x6/img",
+                "note_url" : "/templates/table_2x6/note"
+            },
+            {
+                "id" : "books",
+                "title" : "Reading memo",
+                "img_url" : "/templates/books/img",
+                "note_url" : "/templates/books/note"
             }
         ]      
     }`;
@@ -57,7 +81,34 @@ var templates = [
         'id' : '6',
         'enex_file' : 'tmpl_01.enex',
         'thumb_img' : 'tmpl_01.png'
+    },
+    {
+        'id' : 'bizcard',
+        'enex_file' : 'bizcard.enex',
+        'thumb_img' : 'bizcard.png'
+    },
+    {
+        'id': 'table_2x1',
+        'enex_file': 'table_2x1.enex',
+        'thumb_img': 'table_2x1.png'
+    },
+    {
+        'id': 'table_2x3',
+        'enex_file': 'table_2x3.enex',
+        'thumb_img': 'table_2x3.png'
+    },
+    {
+        'id': 'table_2x6',
+        'enex_file': 'table_2x6.enex',
+        'thumb_img': 'table_2x6.png'
+    },
+    {
+        'id': 'books',
+        'enex_file': 'books.enex',
+        'thumb_img': 'books.png'
     }
+
+
 ];
 
 
